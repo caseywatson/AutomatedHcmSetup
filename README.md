@@ -1,3 +1,5 @@
+> Code is as-is, no warranties, etc.
+
 This script makes it simple to quickly deploy a new [hybrid connection](https://docs.microsoft.com/en-us/azure/app-service/app-service-hybrid-connections) and attach it to an existing Azure web app.
 
 ## Usage

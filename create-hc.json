@@ -19,6 +19,10 @@
             "apiVersion": "2018-01-01-preview",
             "name": "[variables('relayNamespaceName')]",
             "location": "[resourceGroup().location]",
+            "tags": {
+                "hybridConnectionName": "[parameters('connectionName')]",
+                "hybridConnectionEndpoint": "[parameters('connectionEndpoint')]"
+            },
             "sku": {
                 "name": "Standard",
                 "tier": "Standard"

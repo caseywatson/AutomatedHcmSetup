@@ -2,9 +2,9 @@
 
 ARM_TEMPLATE_PATH="./create-hc.json"
 
-usage() { echo "Usage: $0 <-e connection-endpoint> <-g resource-group-name> <-n connection-name> <-w web-app-name>"; }
+usage() { echo "Usage: $0 <-e connection-endpoint> <-g resource-group-name> <-n connection-name> <-w web-app-name> [-f output-file-path]"; }
 
-while getopts "e:g:n:w:" opt; do
+while getopts "e:g:n:w:f:" opt; do
     case $opt in
         e)
             connection_endpoint=$OPTARG # The hybrid connection endpoint (host:port).
@@ -18,6 +18,9 @@ while getopts "e:g:n:w:" opt; do
         w)
             web_app_name=$OPTARG # The name of the web app that this connection should be associated with. Note that this web app must exist in [resource_group_name] (g).
         ;;
+        f)
+            output_file_path=$OPTARG # [Optional] - The path of the output file to the write the hybrid connection string to.
+        ;;
         \?)
             usage
             exit 1
@@ -29,10 +32,9 @@ done
 
 deployment_name="$connection_name-deploy"
 
-echo "Deploying hybrid connection [$connection_name] service bus relay namespace...";
+echo "Deploying hybrid connection [$connection_name] service bus relay namespace. This may take a few minutes...";
 
 az deployment group create \
-    --verbose \
     --resource-group "$resource_group_name" \
     --name "$deployment_name" \
     --template-file $ARM_TEMPLATE_PATH \
@@ -52,8 +54,12 @@ az webapp hybrid-connection add \
     --namespace "$hcm_namespace_name" \
     --hybrid-connection "$hcm_connection_name"
 
-echo "All done!"
-echo "HCM connection string is [$hcm_connection_string]."
+if [[ -z $output_file_path ]]; then
+    echo "All done! HCM connection string is [$hcm_connection_string]."
+else
+    echo $hcm_connection_string > $output_file_path
+    echo "All done! HCM connection string written to [$output_file_path]."
+fi
 
 
 

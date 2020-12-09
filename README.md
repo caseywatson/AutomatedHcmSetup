@@ -21,8 +21,8 @@ The script automates the provisioning of a new Azure [hybrid connection](https:/
       
 | Parameter | Flag | Description |
 | --------- | ---- | ----------- |
-| `resource group name` | `-g` | The name of the resource group in which the relay and connection will be deployed. This must be the same resource group that the web app (`-w`) is deployed to. |
-| `web app name` | `-w` | |
+| __Resource group name__ | `-g` | The name of the resource group in which the relay and connection will be deployed. This must be the same resource group that the web app (`-w`) is deployed to. |
+| __Web app name__ | `-w` | |
 
 
 

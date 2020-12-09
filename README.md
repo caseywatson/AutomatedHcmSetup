@@ -15,13 +15,14 @@ The script automates the provisioning of a new Azure [hybrid connection](https:/
 4. Navigate to the cloned repository's directory.
       * `cd AutomatedHcmSetup`
 5. Allow the script to be executed.
-      * From the console - `chmod +x ./create-hc.sh`
+      * `chmod +x ./create-hc.sh`
 6. Run the script. Refer to the table below for more information on using script parameters. 
       * `./create-hc.sh -g <resource group name> -w <web app name> -n <connection name> -e <connection endpoint> -f [connection string output file]`
       
 | Parameter | Flag | Description |
 | --------- | ---- | ----------- |
-| Resource group name | `-g` | The name of the resource group in which the relay and connection will be deployed. This must be the same resource group that the web app (`-w`) is deployed to. |
+| __Resource group name__ | `-g` | The name of the resource group in which the relay and connection will be deployed. This must be the same resource group that the web app (`-w`) is deployed to. |
+| __Web app name__ | `-w` | 
 
 
 

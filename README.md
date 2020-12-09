@@ -18,6 +18,10 @@ The script automates the provisioning of a new Azure [hybrid connection](https:/
       * From the console - `chmod +x ./create-hc.sh`
 6. Run the script. Refer to the table below for more information on using script parameters. 
       * `./create-hc.sh -g <resource group name> -w <web app name> -n <connection name> -e <connection endpoint> -f [connection string output file]`
+      
+| Parameter | Flag | Description |
+| --------- | ---- | ----------- |
+| Resource group name | `-g` | The name of the resource group in which the relay and connection will be deployed. This must be the same resource group that the web app (`-w`) is deployed to. |
 
 
 

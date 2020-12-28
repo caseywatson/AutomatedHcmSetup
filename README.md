@@ -28,7 +28,7 @@ The script automates the provisioning of a new Azure [hybrid connection](https:/
 | __Connection name__ | `-n` | The name of the hybrid connection. All related resources created by this script will be prefixed with this identifier. |
 | __Connection endpoint__ | `-e` | The hybrid connection endpoint (including host name and port) as defined in [this article](https://docs.microsoft.com/en-us/azure/app-service/app-service-hybrid-connections#how-it-works). |
 
-> __Tip__: Want to run this script as part of an automated pipeline? Include the `-q` flag to run this script quietly. The only script output will be the HCM connection string which can be redirected to a file or collected as part of an automated deployment tool. _Merry Christmas, Manish._ 😉
+> __Tip__: Want to run this script as part of an automated pipeline? Include the `-q` flag to run this script quietly. The only script output will be the HCM connection string which can be redirected to a file or collected as part of an automated deployment tool like [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/). _Merry Christmas, Manish._ 😉
 
 
 

@@ -19,7 +19,7 @@ The script automates the provisioning of a new Azure [hybrid connection](https:/
 5. Allow the script to be executed.
       * `chmod +x ./create-hc.sh`
 6. Run the script. Refer to the table below for more information on using script parameters. 
-      * `./create-hc.sh -g <resource group name> -w <web app name> -n <connection name> -e <connection endpoint> -f [connection string output file]`
+      * `./create-hc.sh -g <resource group name> -w <web app name> -n <connection name> -e <connection endpoint>`
       
 | Parameter | Flag | Description |
 | --------- | ---- | ----------- |
@@ -27,7 +27,8 @@ The script automates the provisioning of a new Azure [hybrid connection](https:/
 | __Web app name__ | `-w` | The name of the Azure web app that the hybrid connection should be assigned to. This web app must already exist in the resource group provided through the __resource group name__ (`-g`) parameter. |
 | __Connection name__ | `-n` | The name of the hybrid connection. All related resources created by this script will be prefixed with this identifier. |
 | __Connection endpoint__ | `-e` | The hybrid connection endpoint (including host name and port) as defined in [this article](https://docs.microsoft.com/en-us/azure/app-service/app-service-hybrid-connections#how-it-works). |
-| __Connection string output file__ (Optional) | `-f` | If provided, the script will automatically write the connection string out to this file. If this parameter isn't provided, the connection string will be echoed out to the terminal after the connection is configured. |
+
+> __Tip__: Want to run this script as part of an automated pipeline? Include the `-q` flag to run this script quietly. The only script output will be the HCM connection string which can be redirected to a file or collected as part of an automated deployment tool. _Merry Christmas, Manish._ 😉
 
 
 
